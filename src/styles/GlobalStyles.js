@@ -1,9 +1,24 @@
 import { createGlobalStyle } from 'styled-components';
 
 export const GlobalStyle = createGlobalStyle`
+  /* variables */
+  :root{
+    --blackberry-dark: #100F0F;
+    --blackberry-light: #ADA8A4;
+    --light-color: #E5E5E5;
+    --mid-gray: #E7E5E4;
+    --white-color: #fff;
+    --coconut-color: #C5C2BF;
+    --brown-color: #E9BF96;
+    --blueberry-color: #0A66C2;
+  }
+
+  /* Reset styles */
   html {
     box-sizing: border-box;
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-family: Inter, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-style: normal;
+    font-weight: 500;
   }
 
   *, *::before, *::after {
@@ -26,7 +41,7 @@ export const GlobalStyle = createGlobalStyle`
   }
 
   body {
-    background: #fefefe;
+    background: var(--light-color);
     height: 100vh;
     margin: 0 auto;
     overscroll-behavior: none;
@@ -37,37 +52,5 @@ export const GlobalStyle = createGlobalStyle`
     box-shadow: 0 0 10px rgba(0, 0, 0, .05);
     overflow-x: hidden;
     min-height: 100vh;
-    padding-bottom: 10px;
-  }
-
-  .App-logo {
-    height: 40vmin;
-    pointer-events: none;
-  }
-
-  @media (prefers-reduced-motion: no-preference) {
-    .App-logo {
-      animation: App-logo-spin infinite 20s linear;
-    }
-  }
-
-  .App-header {
-    background-color: #282c34;
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    font-size: calc(10px + 2vmin);
-    color: white;
-  }
-
-  @keyframes App-logo-spin {
-    from {
-      transform: rotate(0deg);
-    }
-    to {
-      transform: rotate(360deg);
-    }
   }
 `;
