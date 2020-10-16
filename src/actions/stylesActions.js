@@ -47,6 +47,7 @@ export function onFetchProducts() {
     fetch('http://localhost:3000/api/products')
     .then((response) => response.json())
     .then((products) => dispatch(setProducts(products)))
+    .catch((error) => console.log('Error trying to fetch data: ', error))
   }
 }
 

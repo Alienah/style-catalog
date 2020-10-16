@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { fontMMedium } from '../../styles/Fonts';
+import { fontMMedium, fontXSRegular } from '../../styles/Fonts';
 
 export const Wrapper = styled.div`
   width: 100%;
@@ -22,6 +22,11 @@ export const Container = styled.div`
 
 export const Title = styled.h2`
   ${fontMMedium};
+  padding: 2px 20px;
+`;
+
+export const Error = styled.span`
+  ${fontXSRegular};
   padding: 2px 20px;
 `;
 

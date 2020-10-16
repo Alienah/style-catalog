@@ -6,6 +6,7 @@ import { ProductCardsListComponent } from '../components/ProductCardsList';
 export const ProductCardsList = () => {
   const searchValue = useSelector((state) => state.handleStylesReducer.searchValue);
   const styles = useSelector((state) => state.handleStylesReducer.styles);
+  const notFound = useSelector((state) => state.handleStylesReducer.notFound);
   const dispatch = useDispatch();
   const [ notVisibleStyles, setNotVisibleStyles ] = useState([]);
   const [ buttonVisible, setButtonVisible ] = useState(false);
@@ -33,6 +34,7 @@ export const ProductCardsList = () => {
       styles = {styles}
       onChange = { handleCheck }
       onClick = { handleNotVisible }
+      notFound = {notFound}
     />
   )
 }

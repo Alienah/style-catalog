@@ -7,16 +7,23 @@ const initialState = {
   styles: [],
   loadingStyles: false,
   loadingNotVisible: false,
+  notFound: false
 };
 
 function getStyles(valuesList, products) {
-  return valuesList.reduce((acc, val) =>{ 
+  let notFound;
+  const styles = valuesList.reduce((acc, val) =>{ 
     const itemIncluded = products.find((item) => {
-      return item.product.includes(val)
+      return item.product.includes(val);
     })
+    if (!itemIncluded) {
+      notFound = true;
+      return [...acc]
+    };
     const { styles } = itemIncluded;
     return [...acc, ...styles];
   }, []);
+  return {styles, notFound}
 }
 
 function getStylesAfterSetNotVisible(styles, notVisibleProducts) {
@@ -41,8 +48,23 @@ export default function handleStylesReducer(state = initialState, action)  {
       const regExp = /\s*,\s*/;
       const { searchValue } = action.payload;
       const valuesList = searchValue.split(regExp);
-      const styles = getStyles(valuesList, state.products);
-      return { ...state, searchValue, styles, loadingStyles: false};
+      let styles = [...state.styles];
+      let notFound;
+      if (!searchValue) {
+        styles = [];
+        notFound = false;
+      }
+      else {
+        try {
+          const result = getStyles(valuesList, state.products);
+          styles = result.styles;
+          notFound = result.notFound;
+        } catch (error) {
+          console.warn(error) 
+          notFound = true;
+        }
+      }
+      return { ...state, searchValue, styles, loadingStyles: false, notFound};
     }
     case HIDE: {
       const notVisibleProducts = action.payload;

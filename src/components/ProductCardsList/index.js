@@ -1,13 +1,14 @@
 import React from 'react';
 import { ProductCard } from '../ProductCard';
-import { Button, Container, List, Title, Wrapper } from './styles';
+import { Button, Container, Error, List, Title, Wrapper } from './styles';
 import eyeIcon from '../../assets/images/eye.svg';
 import PropTypes from 'prop-types';
 
-export const ProductCardsListComponent = ({ buttonVisible, searchValue, styles, onChange, onClick}) => (
+export const ProductCardsListComponent = ({ buttonVisible, notFound, searchValue, styles, onChange, onClick}) => (
   <Wrapper>
     <Container>
       { searchValue && <Title data-testid="title">{searchValue}</Title> }
+      { notFound && <Error>One or more entries did not return search results</Error>}
       { styles.length > 0 &&
         <List data-testid="list">
           {styles.map((style) => (
@@ -24,6 +25,7 @@ export const ProductCardsListComponent = ({ buttonVisible, searchValue, styles, 
 
 ProductCardsListComponent.propTypes = {
   buttonVisible: PropTypes.bool,
+  notFound: PropTypes.bool,
   onChange: PropTypes.func,
   onClick: PropTypes.func,
   searchValue: PropTypes.string,
