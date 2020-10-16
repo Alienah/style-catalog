@@ -1,13 +1,22 @@
+export const FETCH = 'FETCH';
 export const SEARCH = 'SEARCH';
 export const HIDE = 'HIDE';
 export const LOADING_STYLES = 'LOADING_STYLES';
 export const LOADING_NOT_VISIBLE = 'LOADING_NOT_VISIBLE';
 
-function searchProductStyles(products, value) {
+function setProducts(products) {
+  return ({
+    type: FETCH,
+    payload: {
+      products,
+    }
+  })
+}
+
+function searchProductStyles(value) {
   return ({
     type: SEARCH,
     payload: {
-      products,
       searchValue: value,
     }
   })
@@ -32,12 +41,19 @@ function loadingNotVisible() {
   }
 }
 
-export function onSearchProductStyles(value) {
+export function onFetchProducts() {
   return (dispatch) => {
     dispatch(loadingStyles());
     fetch('http://localhost:3000/api/products')
     .then((response) => response.json())
-    .then((products) => dispatch(searchProductStyles(products, value)))
+    .then((products) => dispatch(setProducts(products)))
+  }
+}
+
+export function onSearchProductStyles(value) {
+  return (dispatch) => {
+    dispatch(loadingStyles());
+    dispatch(searchProductStyles(value));
   }
 }
 

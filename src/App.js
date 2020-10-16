@@ -1,5 +1,6 @@
-import React from 'react';
-import { useSelector } from 'react-redux';
+import React, { useEffect } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
+import { onFetchProducts } from './actions/stylesActions';
 import { GlobalStyle } from './styles/GlobalStyles';
 import { Header } from './containers/Header';
 import { Spinner } from './components/Spinner';
@@ -15,6 +16,12 @@ if (process.env.NODE_ENV === 'development') {
 function App() {
   const loadingNotVisible = useSelector((state) => state.handleStylesReducer.loadingNotVisible);
   const loadingStyles = useSelector((state) => state.handleStylesReducer.loadingStyles);
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(onFetchProducts());
+  }, [dispatch]);
+
   return (
     <AppContainer>
       <GlobalStyle />

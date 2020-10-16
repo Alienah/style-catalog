@@ -1,4 +1,4 @@
-import { SEARCH, HIDE, LOADING_STYLES, LOADING_NOT_VISIBLE } from '../actions/stylesActions';
+import { FETCH, SEARCH, HIDE, LOADING_STYLES, LOADING_NOT_VISIBLE } from '../actions/stylesActions';
 
 const initialState = {
   products: [],
@@ -33,12 +33,16 @@ function getStylesAfterSetNotVisible(styles, notVisibleProducts) {
 
 export default function handleStylesReducer(state = initialState, action)  {
   switch(action.type) {
+    case FETCH : {
+      const { products } = action.payload;
+      return { ...state, products, loadingStyles: false};
+    }
     case SEARCH : {
       const regExp = /\s*,\s*/;
-      const { products, searchValue } = action.payload;
+      const { searchValue } = action.payload;
       const valuesList = searchValue.split(regExp);
-      const styles = getStyles(valuesList, products);
-      return { ...state, products, searchValue, styles, loadingStyles: false};
+      const styles = getStyles(valuesList, state.products);
+      return { ...state, searchValue, styles, loadingStyles: false};
     }
     case HIDE: {
       const notVisibleProducts = action.payload;
