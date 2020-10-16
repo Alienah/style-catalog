@@ -36,10 +36,8 @@ export function onSearchProductStyles(value) {
   return (dispatch) => {
     dispatch(loadingStyles());
     fetch('http://localhost:3000/api/products')
-    .then((response) => { return response.json(); })
-    .then((products) => { 
-      dispatch(searchProductStyles(products, value));
-    })
+    .then((response) => response.json())
+    .then((products) => dispatch(searchProductStyles(products, value)))
   }
 }
 

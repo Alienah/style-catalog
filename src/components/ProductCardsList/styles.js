@@ -49,7 +49,7 @@ export const List = styled.ul`
     grid-column-gap: 11px;
   }
 
-  @media (min-width: 948px) {
+  @media (min-width: 1024px) {
     grid-template-columns: repeat(6, 1fr);
   }
 `;
