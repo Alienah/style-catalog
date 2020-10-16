@@ -15,5 +15,5 @@ export const SearchBarComponent = ({onChange, onSubmit, searchValue}) => {
 SearchBarComponent.propTypes = {
   onChange: PropTypes.func.isRequired,
   onSubmit: PropTypes.func.isRequired,
-  searchValue: PropTypes.string.isRequired
+  searchValue: PropTypes.string,
 }

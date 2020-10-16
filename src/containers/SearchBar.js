@@ -13,7 +13,6 @@ export const SearchBar = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // if (searchValue) dispatch(onSearchProductStyles(searchValue));
     dispatch(onSearchProductStyles(searchValue));
   };
   

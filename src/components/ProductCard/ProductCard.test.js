@@ -19,7 +19,7 @@ describe('ProductCard', () => {
     CTR: 0.56,
     turnover: 16.3,
     visible: true,
-    onClick: () => {}
+    onChange: () => {}
   }
 
   it('should render a background in image container', () => {

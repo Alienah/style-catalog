@@ -14,24 +14,33 @@ describe('SearchBarComponent', () => {
   };
   const mockStore = configureStore([thunk])
   const store = mockStore(initialState);
+  const props = {
+    onChange: (e) => {return e.target.value},
+    onSubmit: () => {}, 
+  }
 
   it('renders an input', () => {
-    const { container } = render(<Provider store={store}><SearchBarComponent /></Provider>);
+    const { container } = render(<Provider store={store}><SearchBarComponent {...props} /></Provider>);
     const input = getByTestId(container, 'input');
     expect(input).toBeInTheDocument();
   });
 
   it('has a initial value', () => {
-    const { container } = render(<Provider store={store}><SearchBarComponent /></Provider>);
+    const { container } = render(<Provider store={store}><SearchBarComponent {...props} /></Provider>);
     const input = getByTestId(container, 'input');
     expect(input.value).toBe('');
   });
 
-  it('changes value of input', () => {
-    const { container } = render(<Provider store={store}><SearchBarComponent /></Provider>);
+  it('should changes value of input with onChange', () => {
+    const { container } = render(<Provider store={store}><SearchBarComponent {...props} /></Provider>);
     const input = getByTestId(container, 'input');
     expect(input.value).toBe('');
-    fireEvent.change(input,{target: {value: 'test'}});
-    expect(input.value).toBe('test');
+    let event = {
+      target: {
+        value: 'test'
+      }
+    }
+    fireEvent.change(input, event )
+    expect(input.value).toBe("test");
   });
 })
