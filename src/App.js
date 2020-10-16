@@ -3,6 +3,7 @@ import { useSelector } from 'react-redux';
 import { GlobalStyle } from './styles/GlobalStyles';
 import { Header } from './containers/Header';
 import { ProductCardsList } from './containers/ProductCardsList';
+import { Content } from './styles/AppStyles';
 
 function App() {
   const loadingNotVisible = useSelector((state) => state.handleStylesReducer.loadingNotVisible);
@@ -11,11 +12,13 @@ function App() {
     <div className="App">
       <GlobalStyle />
       <Header />
-      { 
-        loadingNotVisible || loadingStyles
-        ? <div>{ loadingStyles ? "We're searching the styles" : "We're hiding the styles" }</div>
-        : <ProductCardsList />
-      }
+      <Content>
+        { 
+          loadingNotVisible || loadingStyles
+          ? <div>{ loadingStyles ? "We're searching the styles" : "We're hiding the styles" }</div>
+          : <ProductCardsList />
+        }
+      </Content>
     </div>
   );
 }

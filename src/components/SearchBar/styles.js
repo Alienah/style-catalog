@@ -1,5 +1,5 @@
 import styled, { css } from 'styled-components';
-import { XL, XXL } from '../../styles/Fonts';
+import { fontXL, fontXXL } from '../../styles/Fonts';
 
 export const Form = styled.form`
   display: flex;
@@ -12,13 +12,13 @@ export const Image = styled.img`
 `;
 
 export const Input = styled.input`
-  ${XL}
+  ${fontXL}
   background: transparent;
   border: none;
   padding: 0 16px;
   color: var(--white-color);
   @media (min-width: 768px) {
-    ${XXL}
+    ${fontXXL}
   }
 `;
 
@@ -38,6 +38,6 @@ export const Button = styled.button`
   align-items: center;
   width: ${searchButtonWidth(paddingRight)};
   @media (min-width: 768px) {
-    ${XXL}
+    ${fontXXL}
   }  
 `;

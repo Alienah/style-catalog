@@ -1,9 +1,9 @@
 import styled from 'styled-components';
-import { XSRegular } from '../../styles/Fonts';
+import { fontXSRegular } from '../../styles/Fonts';
 import { searchButtonWidth } from '../SearchBar/styles';
 
 export const HeaderStyle = styled.header`
-  ${XSRegular}
+  ${fontXSRegular}
   background: var(--blackberry-dark);
   color: var(--coconut-color);
   min-height: 100px;

@@ -32,7 +32,7 @@ export const GlobalStyle = createGlobalStyle`
   }
 
   body {
-    background: var(--light-color);
+    background: var(--light-color-40);
     height: 100vh;
     margin: 0 auto;
     overscroll-behavior: none;
