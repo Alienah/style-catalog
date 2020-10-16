@@ -2,6 +2,7 @@ import React from 'react';
 import { ProductCard } from '../ProductCard';
 import { Button, Container, List, Title, Wrapper } from './styles';
 import eyeIcon from '../../assets/images/eye.svg';
+import PropTypes from 'prop-types';
 
 export const ProductCardsListComponent = ({ buttonVisible, searchValue, styles, onChange, onClick}) => (
   <Wrapper>
@@ -20,4 +21,30 @@ export const ProductCardsListComponent = ({ buttonVisible, searchValue, styles, 
     </Container>
   </Wrapper>
 );
+
+ProductCardsListComponent.propTypes = {
+  buttonVisible: PropTypes.bool,
+  onChange: PropTypes.func,
+  onClick: PropTypes.func,
+  searchValue: PropTypes.string,
+  styles: PropTypes.arrayOf(
+    PropTypes.shape({
+      CTR: PropTypes.number,
+      id: PropTypes.number,
+      images: PropTypes.arrayOf(
+        PropTypes.shape({
+          format: PropTypes.string,
+          url: PropTypes.string
+        }),
+      ),
+      reference: PropTypes.string,
+      sales: PropTypes.number,
+      styleCode: PropTypes.string,
+      styleName: PropTypes.string,
+      turnover: PropTypes.number,
+      visible: PropTypes.bool,
+      visits: PropTypes.number,
+    }),
+  ).isRequired,
+}
 

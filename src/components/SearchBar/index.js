@@ -1,6 +1,7 @@
 import React from 'react';
 import { Form, Image, Input, Button } from './styles';
-import searchIcon from '../../assets/images/search.svg'
+import searchIcon from '../../assets/images/search.svg';
+import PropTypes from 'prop-types';
 
 export const SearchBarComponent = ({onChange, onSubmit, searchValue}) => {
   return (
@@ -10,3 +11,9 @@ export const SearchBarComponent = ({onChange, onSubmit, searchValue}) => {
     </Form>
   );
 };
+
+SearchBarComponent.propTypes = {
+  onChange: PropTypes.func.isRequired,
+  onSubmit: PropTypes.func.isRequired,
+  searchValue: PropTypes.string.isRequired
+}

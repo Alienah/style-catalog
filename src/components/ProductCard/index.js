@@ -1,5 +1,6 @@
 import React from 'react';
 import { CheckboxContainer, Checkbox, CheckboxSpan, ImageContainer, NameContainer, NotVisibleTag, ValueContainer, StatisticsContainer, TagContainer } from './styles';
+import PropTypes from 'prop-types';
 
 export const ProductCard = (props) => {
   const { images, id, styleCode, styleName, visits, sales, CTR, turnover, visible, onChange } = props;
@@ -26,4 +27,22 @@ export const ProductCard = (props) => {
     <NameContainer data-testid="name-container">{styleCode} - {styleName}</NameContainer>
   </div>
   )
+}
+
+ProductCard.propTypes = {
+  CTR: PropTypes.number.isRequired,
+  id: PropTypes.number.isRequired,
+  images: PropTypes.arrayOf(
+    PropTypes.shape({
+      format: PropTypes.string,
+      url: PropTypes.string
+    }),
+  ).isRequired,
+  onChange: PropTypes.func.isRequired,
+  sales: PropTypes.number.isRequired,
+  styleCode: PropTypes.string.isRequired,
+  styleName: PropTypes.string.isRequired,
+  turnover: PropTypes.number.isRequired,
+  visible: PropTypes.bool.isRequired,
+  visits: PropTypes.number.isRequired,
 }
