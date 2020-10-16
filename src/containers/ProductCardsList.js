@@ -11,8 +11,15 @@ export const ProductCardsList = () => {
   const [ buttonVisible, setButtonVisible ] = useState(false);
 
   const handleCheck = (e) => {
-    setButtonVisible(true);
-    setNotVisibleStyles([...notVisibleStyles, e.target.id])
+    if (e.target.checked) {
+      setButtonVisible(true);
+      setNotVisibleStyles([...notVisibleStyles, e.target.id])
+    } else {      
+      var indexToRemove = notVisibleStyles.indexOf(e.target.id);
+      notVisibleStyles.splice(indexToRemove, 1);
+      setNotVisibleStyles( notVisibleStyles );
+      if (notVisibleStyles.length === 0) setButtonVisible(false);
+    }
   }
 
   const handleNotVisible = (e) => {
