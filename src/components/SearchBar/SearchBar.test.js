@@ -1,6 +1,6 @@
 import React from 'react';
 import { render, fireEvent, getByTestId } from '@testing-library/react';
-import {products} from '../../../api/products.json';
+import { products } from '../../api/products.json';
 import { Provider } from 'react-redux'
 import configureStore from 'redux-mock-store'
 import { SearchBarComponent } from './index';

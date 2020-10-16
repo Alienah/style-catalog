@@ -10,6 +10,7 @@ export const Container = styled.div`
   display: flex;
   flex-direction: column;
   padding: 16px;
+  min-height: 342px;
   @media (min-width: 948px) {
     padding: 24px;
   }

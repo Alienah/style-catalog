@@ -6,7 +6,7 @@ export const SearchBarComponent = ({onChange, onSubmit, searchValue}) => {
   return (
     <Form data-testid="form" onSubmit={onSubmit}>
       <Button><Image src={searchIcon} alt="search icon" /></Button>
-      <Input data-testid="input" onChange={onChange} placeholder="XXXXXXXXXXX-V2020" value={searchValue} />
+      <Input data-testid="input" type="text" onChange={onChange} placeholder="XXXXXXXXXXX-V2020" value={searchValue} maxlength="70"/>
     </Form>
   );
 };

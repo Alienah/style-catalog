@@ -1,5 +1,3 @@
-import productsResponse from '../assets/data/products.json';
-
 export const SEARCH = 'SEARCH';
 export const HIDE = 'HIDE';
 export const LOADING_STYLES = 'LOADING_STYLES';
@@ -37,10 +35,11 @@ function loadingNotVisible() {
 export function onSearchProductStyles(value) {
   return (dispatch) => {
     dispatch(loadingStyles());
-    setTimeout(()=> {
-      const products = productsResponse;
+    fetch('http://localhost:3000/api/products')
+    .then((response) => { return response.json(); })
+    .then((products) => { 
       dispatch(searchProductStyles(products, value));
-    }, 2000)
+    })
   }
 }
 

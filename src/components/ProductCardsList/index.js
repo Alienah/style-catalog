@@ -3,8 +3,6 @@ import { ProductCard } from '../ProductCard';
 import { Button, Container, List, Title, Wrapper } from './styles';
 import eyeIcon from '../../assets/images/eye.svg';
 
-// 04369248800-V2020, 04369248801-V2020
-
 export const ProductCardsListComponent = ({ buttonVisible, searchValue, styles, onChange, onClick}) => (
   <Wrapper>
     <Container>

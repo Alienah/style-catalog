@@ -17,6 +17,8 @@ export const Input = styled.input`
   border: none;
   padding: 0 16px;
   color: var(--white-color);
+  word-break: break-all;
+
   @media (min-width: 768px) {
     ${fontXXL}
   }
