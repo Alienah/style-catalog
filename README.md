@@ -4,7 +4,7 @@ The user will be able to choose which styles should remain not visible.
 
 ## Available Scripts
 
-Before everything, you should install the dependencies with ```npm install```.
+Before everything, you should install the dependencies with **```npm install```**.
 
 In the project directory, you can run:
 
