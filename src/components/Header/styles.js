@@ -1,7 +1,11 @@
 import styled from 'styled-components';
+import { XSRegular } from '../../styles/Fonts';
+import { searchButtonWidth } from '../SearchBar/styles';
 
 export const HeaderStyle = styled.header`
+  ${XSRegular}
   background: var(--blackberry-dark);
+  color: var(--coconut-color);
   min-height: 100px;
   display: flex;
   flex-direction: column;
@@ -13,18 +17,14 @@ export const HeaderStyle = styled.header`
 `;
 
 export const UserContainer = styled.div`
-  color: var(--coconut-color);
-  @media (min-width: 768px) {
-    align-self: flex-end;
-  }
+  margin-bottom: 8px;
+  align-self: flex-end;
 `;
 
 export const UserSpan = styled.span`
-  @media (min-width: 768px) {
-    margin-right: 8px;
-  }
+  margin-right: 8px;
 `;
 
 export const TotalSpan = styled.span`
-  color: var(--coconut-color);
+  padding: 8px 0px 0px ${searchButtonWidth(32)};;
 `;

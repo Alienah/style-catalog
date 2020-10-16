@@ -1,11 +1,12 @@
 import React from 'react';
-import { Form, Input, Button } from './styles';
+import { Form, Image, Input, Button } from './styles';
+import searchIcon from '../../assets/images/search.svg'
 
 export const SearchBarComponent = ({onChange, onSubmit, searchValue}) => {
   return (
     <Form data-testid="form" onSubmit={onSubmit}>
-      <Button>+</Button>
-      <Input data-testid="input" onChange={onChange} placeholder="Prueba" value={searchValue} />
+      <Button><Image src={searchIcon} alt="search icon" /></Button>
+      <Input data-testid="input" onChange={onChange} placeholder="XXXXXXXXXXX-V2020" value={searchValue} />
     </Form>
   );
 };

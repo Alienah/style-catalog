@@ -1,22 +1,13 @@
 import { createGlobalStyle } from 'styled-components';
+import { variables } from './Variables';
 
 export const GlobalStyle = createGlobalStyle`
-  /* variables */
-  :root{
-    --blackberry-dark: #100F0F;
-    --blackberry-light: #ADA8A4;
-    --light-color: #E5E5E5;
-    --mid-gray: #E7E5E4;
-    --white-color: #fff;
-    --coconut-color: #C5C2BF;
-    --brown-color: #E9BF96;
-    --blueberry-color: #0A66C2;
-  }
+  ${variables}
 
   /* Reset styles */
   html {
     box-sizing: border-box;
-    font-family: Inter, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-family: 'Inter', 'Open Sans', 'Helvetica Neue', sans-serif;
     font-style: normal;
     font-weight: 500;
   }

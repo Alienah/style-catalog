@@ -8,7 +8,7 @@ export const HeaderComponent = ({styles}) => {
   <HeaderStyle>
     <UserContainer>
       <UserSpan>Jose López López</UserSpan>
-      <img src={ArrowDown} className="App-logo" alt="logo" />
+      <img src={ArrowDown} alt="arrow-down" />
     </UserContainer>
     <SearchBar data-testid="search-bar" />
     <TotalSpan data-testid="styles-total">{styles.length} Styles</TotalSpan>

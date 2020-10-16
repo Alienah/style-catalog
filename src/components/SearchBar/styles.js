@@ -1,14 +1,43 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
+import { XL, XXL } from '../../styles/Fonts';
 
 export const Form = styled.form`
+  display: flex;
+  align-items: center;
   color: var(--white-color);
 `;
 
-export const Input = styled.input`
-  border-left: 1px solid var(--mid-gray);
-  
+export const Image = styled.img`
+  min-height: 30px;  
 `;
 
+export const Input = styled.input`
+  ${XL}
+  background: transparent;
+  border: none;
+  padding: 0 16px;
+  color: var(--white-color);
+  @media (min-width: 768px) {
+    ${XXL}
+  }
+`;
+
+export const searchButtonWidth = (paddingRight) => {
+  const buttonWidth = 42;
+  return css`${buttonWidth + paddingRight}px`;
+}
+
+const paddingRight = 16;
 export const Button = styled.button`
-  color: var(--white-color);  
+  
+  height: 48px;
+  padding-right: ${paddingRight}px;
+  border-right: 1px solid var(--mid-gray);
+  color: var(--white-color);
+  display: flex;
+  align-items: center;
+  width: ${searchButtonWidth(paddingRight)};
+  @media (min-width: 768px) {
+    ${XXL}
+  }  
 `;
