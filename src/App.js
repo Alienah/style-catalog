@@ -1,19 +1,21 @@
 import React from 'react';
-import logo from './logo.svg';
+import { useSelector } from 'react-redux';
 import { GlobalStyle } from './styles/GlobalStyles';
-import { Header } from './components/Header';
+import { Header } from './containers/Header';
+import { ProductCardsList } from './containers/ProductCardsList';
 
 function App() {
+  const loadingNotVisible = useSelector((state) => state.handleStylesReducer.loadingNotVisible);
+  const loadingStyles = useSelector((state) => state.handleStylesReducer.loadingStyles);
   return (
     <div className="App">
       <GlobalStyle />
       <Header />
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Inicio
-        </p>
-      </header>
+      { 
+        loadingNotVisible || loadingStyles
+        ? <div>{ loadingStyles ? "We're searching the styles" : "We're hiding the styles" }</div>
+        : <ProductCardsList />
+      }
     </div>
   );
 }

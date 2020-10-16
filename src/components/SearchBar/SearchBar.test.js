@@ -3,10 +3,10 @@ import { render, fireEvent, getByTestId } from '@testing-library/react';
 import {products} from '../../../api/products.json';
 import { Provider } from 'react-redux'
 import configureStore from 'redux-mock-store'
-import { SearchBar } from './index';
+import { SearchBarComponent } from './index';
 import thunk from 'redux-thunk';
 
-describe('SearchBar', () => {
+describe('SearchBarComponent', () => {
   const initialState = {
     products: products,
     searchValue: '',
@@ -16,19 +16,19 @@ describe('SearchBar', () => {
   const store = mockStore(initialState);
 
   it('renders an input', () => {
-    const { container } = render(<Provider store={store}><SearchBar /></Provider>);
+    const { container } = render(<Provider store={store}><SearchBarComponent /></Provider>);
     const input = getByTestId(container, 'input');
     expect(input).toBeInTheDocument();
   });
 
   it('has a initial value', () => {
-    const { container } = render(<Provider store={store}><SearchBar /></Provider>);
+    const { container } = render(<Provider store={store}><SearchBarComponent /></Provider>);
     const input = getByTestId(container, 'input');
     expect(input.value).toBe('');
   });
 
   it('changes value of input', () => {
-    const { container } = render(<Provider store={store}><SearchBar /></Provider>);
+    const { container } = render(<Provider store={store}><SearchBarComponent /></Provider>);
     const input = getByTestId(container, 'input');
     expect(input.value).toBe('');
     fireEvent.change(input,{target: {value: 'test'}});

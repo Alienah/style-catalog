@@ -1,25 +1,11 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { Form, Input, Button } from './styles';
-import { useDispatch } from 'react-redux';
-import { searchProductStyles } from '../../actions/searchActions.js';
 
-export const SearchBar = () => {
-  const [searchValue, setSearchValue] = useState('');
-  const dispatch = useDispatch();
-
-  const handleChange = (e) => {
-    setSearchValue(e.target.value);
-  };
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    dispatch(searchProductStyles(searchValue))
-  };
-
+export const SearchBarComponent = ({onChange, onSubmit, searchValue}) => {
   return (
-    <Form data-testid="form" onSubmit={handleSubmit}>
+    <Form data-testid="form" onSubmit={onSubmit}>
       <Button>+</Button>
-      <Input data-testid="input" onChange={handleChange} placeholder="Prueba" value={searchValue} />
+      <Input data-testid="input" onChange={onChange} placeholder="Prueba" value={searchValue} />
     </Form>
   );
 };
